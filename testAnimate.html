@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .myMove{
+      height: 50px;
+      width: 50px;
+      background: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 3s;
+    }
+
+  /*@keyframes myMove {
+    0% {
+        left: 0;
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    25% {
+        left: 280px;
+        top: 0;
+        transform: rotate(720deg);
+    }
+
+    50% {
+        left: 310px;
+        top: 60px;
+        transform: rotate(1440deg);
+    }
+
+    75% {
+        left: 330px;
+        top: 90px;
+        transform: rotate(2160deg);
+    }
+
+    100% {
+        left: 370px;
+        top: 140px;
+        transform: rotate(2880deg);
+    }
+  }
+
+  .myMove {
+    animation: myMove 12s ease-in-out interval;
+  }*/
+
+    .move0{
+        left: 0px;
+        top: 0;
+        transform: rotate(0deg);
+    }
+    .move1{
+        left: 280px;
+        top: 0;
+        transform: rotate(720deg);
+    }
+
+    .move2{
+        left: 310px;
+        top: 60px;
+        transform: rotate(1440deg);
+    }
+
+    .move3{
+        left: 330px;
+        top: 90px;
+        transform: rotate(2160deg);
+    }
+
+    .move4{
+        left: 370px;
+        top: 140px;
+        transform: rotate(2880deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="myMove"></div>
+  <script src="jquery.min.js"></script>
+  <script>
+    $('.Yuan1').animate({left:'280px',top:'0'},3000).animate({left:'310px',top:'60px'},2000).animate({left:'330px',top:'90px'},2000).animate({left:'370px',top:'140px'},2000);
+    var i = 1;
+    setInterval(function(){
+      $(".myMove").attr("class", "").addClass("myMove").addClass("move" + i);
+      i++;if(i > 4){
+         i = 0;
+      }
+    },3000);
+  </script>
+</body>
+</html>

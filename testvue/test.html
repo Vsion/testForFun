@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="vue.js"></script>
+  <script src="../jquery.min.js"></script>
+</head>
+<body>
+<div id="category-two" class="mui-control-content">
+                <section  v-for="brands in brand_list">
+                <header class="category-title">{{brands.type_name}}</header>
+                <ul>
+                    <li class="category-item" v-for="brandItem in brands.brandList">
+                        {{brandItem.name}}
+                    </li>
+                </ul>
+                </section>
+            </div>
+<script>
+
+        var list =
+        [//首先说道list, 就应该是一个数组 而且最外层应该是typelist
+              //2 和type_name其实逻辑上是一个东西所以没必要写, 如果非要追加id也可以
+            {
+              "type_name": "美妆",
+              brandList: [
+                {
+                  "brand_id": 72,
+                  "name": "美妆1",
+                },
+              ]
+            },
+            {
+              "type_name": "美妆",
+              brandList: [
+                {
+                  "brand_id": 72,
+                  "name": "美妆2",
+                },
+              ]
+            },
+            {
+              "type_name": "美妆",
+              brandList: [
+                {
+                  "brand_id": 72,
+                  "name": "美妆3",
+                },
+              ]
+            },
+        ]
+    //    var list = {
+    //     "data": {
+    //         "brand_list": {
+    //             "2": {
+    //                 "0": {
+    //                     "brand_id": 72,
+    //                     "name": "aa",
+    //                 },
+    //                 "type_name": "美妆"
+    //             },
+    //             "8": {
+    //                 "0": {
+    //                     "brand_id": 2,
+    //                     "name": "俪语琳",
+    //                 },
+    //                 "type_name": "饰品"
+    //             }
+    //         }
+    //     },
+    //     "code": 200,
+    //     "message": "操作完成"
+    // };
+        //mui.init();
+        //(function($) {
+            var brandList = new Vue({
+                el: '#category-two',
+                data: {
+                        brand_list:{}
+                },
+                    mounted: function() {
+                    var self = this;
+                    //$.getJSON("mode/list.json",function(list){
+                            self.brand_list = list;
+                //        });
+                }
+        });
+        //})(mui);
+</script>
+
+</body>
+</html>

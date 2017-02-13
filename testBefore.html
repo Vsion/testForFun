@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+      li{
+        position: relative;
+      }
+      li:before{ content: ''; top:0; left:0; background:#ccc;height: 100px}
+      li:hover{}
+      .li {
+display: inline;
+
+position: absolute;
+top: 0;
+height: 100%;
+-webkit-transition: top .5s cubic-bezier(0.645, .045, .355, 1);
+-moz-transition: top .5s cubic-bezier(0.645, .045, .355, 1);
+-o-transition: top .5s cubic-bezier(0.645, .045, .355, 1);
+-ms-transition: top .5s cubic-bezier(0.645, .045, .355, 1);
+transition: top .5s cubic-bezier(0.645, .045, .355, 1);
+overflow: auto;
+font-family: "Microsoft Yahei", 微软雅黑, Arial;
+}
+</style>
+//html
+<ul class='mk-nav'>
+    <li class="li">首页</li>
+    <li>简介</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    body{margin:0;}
+ul,li{margin:0; padding:0;}
+li{list-style-type:none;}
+#list{border:2px solid gold; height:500px; display:flex; flex-direction:row;}
+#list li{font-family:"microsoft yahei"; font-size:50px; background:#C00; color:#fff; margin:2px; flex-grow:1;}
+#list li:nth-child(2){flex-grow:2;}
+.item{height:100px;}
+.item:nth-child(4n - 3){background: #ccc;}
+.item:nth-child(4n - 2){background: #ddd;}
+.item:nth-child(4n - 1){background: #eee;}
+.item:nth-child(4n){background: #fff;}
+.item:nth-child(0){background: red;}
+</style>
+<ul id="list">
+<li>test1</li>
+<li>test2</li>
+<li>test3</li>
+
+</ul>
+<div class="total-container" onclick="click1(this)">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <!-- ... -->
+    <script>
+        function click1(e){
+            debugger
+        }
+    </script>
+
+</div>
+</body>
+</html>

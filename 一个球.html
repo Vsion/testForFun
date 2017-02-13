@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #planet{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+    #sBallX{width: 20px; height: 20px; background: #00ADB5; border-radius: 50%;position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+    #bBall{width: 100px; height: 100px; background: #393E46;border-radius: 50%;position: absolute; top: 50%; left: 50%; transform: translate3d(-50%,-50%,0px);}
+@keyframes sBallX{
+0%{transform:translateX(-70px);}
+25%{transform:translateX(70px);}
+50%{transform:translateX(-70px);}
+75%{transform:translateX(70px);}
+100%{transform:translateX(-70px);}
+}
+
+@keyframes sBallZ{
+0%{transform:translateZ(-70px);}
+25%{transform:translateZ(70px);}
+50%{transform:translateZ(-70px);}
+75%{transform:translateZ(150px);}
+100%{transform:translateZ(-70px);}
+}
+
+@keyframes satellite{
+0%      {transform:rotate(0deg);}
+100%    {transform:rotate(360deg);}
+}
+
+@keyframes planet{
+0%      {transform:translate3d(0px,-10px,0px);}
+50%     {transform:translate3d(0px,10px,0px);}
+100%    {transform:translate3d(0px,-10px,0px);}
+}
+
+
+#sBallX{animation:sBallX 2.666s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0s infinite normal;/*transform-origin:400px 400px 0px;*/}
+#sBallZ{animation:sBallZ 2.666s cubic-bezier(0.445, 0.05, 0.55, 0.95) -0.333s infinite normal;/*transform-origin:400px 400px 0px;*/}
+#satellite{animation:satellite 2.666s linear 0s infinite normal;/*transform-origin:400px 400px 0px;*/}
+#planet{animation:planet 2.666s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0s infinite normal;/*transform-origin:400px 400px 0px;*/}
+
+
+    div{perspective:200px;transform-style:preserve-3d;}
+/*感谢 雷雷雷_ray https://segmentfault.com/u/rayrayray */
+/*顺便打个广告。。 http://leizingjiu.lofter.com/ */
+  </style>
+</head>
+<body>
+<div id="planet">
+    <div id="bBall"></div>
+  <div id="sBallZ">
+        <div id="satellite"><div id="sBallX"></div></div>
+  </div>
+</div>
+
+</body>
+</html>

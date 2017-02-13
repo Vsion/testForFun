@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.min.js"></script>
+<script>
+  var Timer;
+  function mouseDown()
+  {
+    document.getElementById("p1").style.color="red";
+    Timer = setInterval(function(){
+      $("#count").html((parseInt($("#count").text()) + 1).toString());
+    },500);
+  }
+
+  function mouseUp()
+  {
+    document.getElementById("p1").style.color="green";
+    clearInterval(Timer);
+  }
+
+  let Copy = function(p, c) {
+    var c = c || {};
+    if(typeof p === 'object'){
+      for (var i in p) {
+        if (p.hasOwnProperty(i) && typeof p[i] === 'object') {
+          c[i] = (p[i].constructor === Array) ? [] : {};
+          Copy(p[i], c[i]);
+        } else {
+          c[i] = p[i];
+        }
+      }
+    }
+    return c;
+  }
+
+</script>
+</head>
+<body>
+<div id="count">1</div>
+<p id="p1" onmousedown="mouseDown()" onmouseup="mouseUp()">
+请点击文本！mouseDown() 函数当鼠标按钮在段落上被按下时触发。此函数把文本颜色设置为红色。mouseUp() 函数在鼠标按钮被释放时触发。mouseUp() 函数把文本的颜色设置为绿色。
+</p>
+
+</body>
+</html>

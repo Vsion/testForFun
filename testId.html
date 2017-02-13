@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery.min.js"></script>
+</head>
+<style>
+  .test{
+    height:100px;
+  }
+  #test08{
+    background: red;
+  }
+  #test09{
+    height: 1000px
+  }
+</style>
+<body>
+  <div class="test" id="test01">
+    <button onclick="test(this)"></button>
+  </div>
+  <div class="test" id="test02"></div>
+  <div class="test" id="test03"></div>
+  <div class="test" id="test04"></div>
+  <div class="test" id="test05"></div>
+  <div class="test" id="test06"></div>
+  <div class="test" id="test07"></div>
+  <div class="test" id="test08"></div>
+  <div class="test" id="test09"></div>
+  <script>
+    function test(e){
+      window.location.href = window.location.href + "#test08";
+    }
+    $("div").click(function(){
+      console.log($(this).parent().find("div").index(this));
+    })
+  </script>
+</body>
+</html>

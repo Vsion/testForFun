@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <div class = "bank_wrap ">
+                <ul>
+                    <li><input type="radio" name = "pay"><div><img src = "images/zhifubao.png"></div></li>
+                    <li><input type="radio" name = "pay"><div><img src = "images/scanner_pay.png"></div></li>
+                    <li><input type="radio" name = "pay"><div><img src = "images/caifutong.png"></div></li>
+                    <li><input type="radio" name = "pay"><div><img src = "images/weixinzhifu.png"></div></li>
+                    <li><input type="radio" name = "pay"><div><img src = "images/zaixianzhifu.png"></div></li>
+                    <div style = "clear:both;"></div>
+                </ul>
+            </div>
+
+
+   <script type = "text/javascript">
+              function click_bank (){
+                  $(".bank_wrap").find("li").click(function(e){
+                      //$("input[name='pay']").attr("checked", false);
+                      $(this).find("input").prop("checked",true);
+                  });
+          }
+
+          click_bank();
+
+        document.documentElement.setAttribute("view-dpr",g);
+
+        var viewport=document.getElementsByName("viewport")[0];
+        viewport.setAttribute("content","initial-scale="+g+", maximum-scale="+g+", minimum-scale="+g+", user-scalable=no");
+        document.documentElement.style.fontSize=(window.innerWidth/rod)+"px";
+
+  </script>
+  <meta name="viewport" content="width=device-width">
+</body>
+</html>

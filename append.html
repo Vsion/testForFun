@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+  <div>
+    <label>城市名称：<input id="aqi-city-input" type="text"></label><br>
+    <label>空气质量指数：<input id="aqi-value-input" type="text"></label><br>
+    <button id="add-btn">确认添加</button>
+  </div>
+  <table id="aqi-table">
+  </table>
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  $("#add-btn").click(function () {
+    var city = $("#aqi-city-input").val().trim() ;
+    var num = $("#aqi-value-input").val().trim() ;
+    var regex = /^[\u4e00-\u9fa5a-zA-Z\/\(\)]+$/;
+    if (!regex.test(city)) {
+      alert("请输入中文");
+      $("#aqi-city-input").val("");
+      $("#aqi-value-input").val("");
+    }else{
+      if ($("#aqi-table tr").length===0) {
+      $("#aqi-table").append("<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>");
+    }
+    }
+    //添加数据行
+    $("#aqi-table").append("<tr><td>" + city + "</td><td>" + num + "</td><td><button>删除</button></td></tr>");
+    $(document).on("click","#aqi-table button", function (event) {
+      event.target.parentNode.parentNode.remove()
+    })
+  })
+})
+</script>
+</body>
+</html>

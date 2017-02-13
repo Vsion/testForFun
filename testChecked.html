@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery.min.js"></script>
+</head>
+<body>
+  <input type="checkbox" name="" id="cb" />
+  <script>
+  $("#cb").change(function(){
+    var b = $(this).is(":checked");
+    localStorage.setItem('checkbox', b);
+  });
+  $(function(){
+    if(localStorage.checkbox == "true"){
+      $("#cb").prop("checked", "checked");
+    }
+  });
+  </script>
+</body>
+</html>

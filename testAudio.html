@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var audio = document.createElement('audio');
+    var source = document.createElement('source');
+    audio.setAttribute('controls', 'controls');
+    audio.innerHTML = "您的浏览器不支持 audio 标签。";
+    source.src = 'http://yinyueshiting.baidu.com/data2/music/124574030/648618151200128.mp3';
+    source.setAttribute('type','audio/mpeg');
+
+    audio.appendChild(source);
+    document.body.appendChild(audio);
+
+    window.addEventListener('click', function(){
+        audio.play();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery.min.js"></script>
+  <style>
+    .item{
+      background: green;
+      color: white;
+      height: 50px;
+      width: 50px;
+      display: inline-block;
+      text-align: center;
+      line-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="test">
+
+  </div>
+  <input type="text" class="itemInput" id="name0" />
+  <input type="text" class="itemInput" id="name1" />
+  <input type="text" class="itemInput" id="name2" />
+  <input type="text" class="itemInput" id="name3" />
+  <button onclick="setItemFun()">点我保存</button>
+  <script>
+    var localStorage = window.localStorage;
+    var arrKey = ["name0", "name1", "name2", "name3"];
+    function checkLocal(){
+      if(localStorage.getItem(arrKey[0])){
+        for (var i = 0; i < arrKey.length; i++) {
+          var tempvalue = localStorage.getItem(arrKey[i])
+          $("#test").append("<div class='item'>" + tempvalue + "</div>");
+          $(".itemInput").eq(i).val(tempvalue);
+        }
+      }
+    }
+    function setItemFun(){
+      for(var i = 0; i < $(".itemInput").length; i ++){
+        localStorage.setItem("name" + i, $(".itemInput").eq(i).val())
+      }
+    }
+    $(function(){
+      checkLocal();
+    });
+    $(".itemInput").on("click", function(){
+      console.log($(this).index());
+    })
+  </script>
+</body>
+</html>

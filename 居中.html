@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>盒子在父元素内居中</title>
+<style>
+
+body,html{
+            width: 100%;
+            height: 100%;
+            clear: both;
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+.list_item{
+
+            overflow: hidden;
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px solid #999999;
+            color: #555555;
+            font-weight: 500;
+        }
+        .list_item_td{
+            display: inline-block;
+            float: left;
+            overflow: hidden;
+        }
+        .o{
+            width: 5%;
+        }
+        .t{
+            width: 10%;
+        }
+        .th{
+            width: 20%;
+        }
+        .f{
+            width: 15%;
+        }
+        .fi{
+            width: 25%;
+        }
+        .s{
+            width: 25%;
+        }
+        .t a{
+            color: #2299DD;
+        }
+</style> </head>
+
+<body>
+    <ul class="list_area">
+                <li class="list_item">
+                    <span class="list_item_td o">
+                        <input type="checkbox"/>
+                    </span>
+                    <span class="list_item_td t"><a>停用</a>|<a>维修</a></span>
+                    <span class="list_item_td th">bz0001</span>
+                    <span class="list_item_td f">ght</span>
+                    <span class="list_item_td fi">187****1065</span>
+                    <span class="list_item_td s">1234567890123456</span>
+                </li>
+            </ul>
+</body>
+</html>

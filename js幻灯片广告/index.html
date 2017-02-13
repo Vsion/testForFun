@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>js广告</title>
+<style>
+*{ margin:0; padding:0; outline:none;}
+li{ list-style:none;}
+a{ text-decoration:none;}
+
+
+.main{ position:relative; width:1000px; height:600px; margin:0 auto; background-color:#eee;}
+
+.ad{ position:absolute;}
+
+.ad_xg{ left:0; top:40px; width:1000px; height:60px;}
+
+.ad_hyxc{ left:0; top:200px; width:180px; height:60px;}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="main">
+  <div class="ad ad_xg"></div>
+  <div class="ad ad_hyxc"></div>
+</div>
+
+
+
+</body>
+<script src="http://www.21-sun.com/js/jquery.min.js"></script>
+<script src="js/AdShow.js"></script>
+<script>
+
+$('.ad_xg').AdShow({
+	imgPages:5,   //图片张数
+	imgType:'jpg', //图片格式
+	imgPath:'images/xg/', //图片路径
+	hrefArr:[
+		'http://www.xcmg.com/',
+		'http://www.xcmg.com/product/',
+		'http://www.roadhome.cn/',
+		'http://www.xcmg.com/',
+		'http://l.maka.im/pcviewer/JMOTJ3OP?from=groupmessage&isappinstalled=0#rd&sukey=16298ae1a3e33631ddba364fb25438ea39f60804498212c0814776e8fa1e318fbf3beaacc965cceff08ed131fe6e8b17'
+		]
+	});
+
+$('.main .ad_hyxc').AdShow({
+	imgPages:2,   //图片张数
+	imgType:'jpg', //图片格式
+	imgPath:'images/hyxc/', //图片路径
+	hrefArr:[
+		'http://chinahongyu.icm.cn/'
+		]
+	});
+
+
+</script>
+</html>

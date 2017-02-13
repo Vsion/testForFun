@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content = "text/html; charset=UTF-8"   />
+    <title>瀑布流</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+      *{
+        margin:0;
+        padding:0;
+      }
+      #container{
+        position:relative;
+        margin: 0 auto;
+        transform: translateX(-5px);
+      }
+      #container li{
+        float:left;
+          padding: 10px 0 0 10px;
+          list-style: none;
+      }
+      #container li div{
+          padding: 10px;
+          box-shadow: 0 0 5px #ccc;
+          background-color: #eee;
+      }
+      #container li img{
+        width:280px;
+        height:auto;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="container">
+      <li>
+        <div>
+          <img src="img/1.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/2.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/3.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/4.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/5.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/6.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/7.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/8.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/9.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/10.jpg" />
+        </div>
+      </li><li>
+        <div>
+          <img src="img/11.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/12.jpg" />
+        </div>
+      </li>
+      <!--
+      <li>
+        <div>
+          <img src="img/1.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/2.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/3.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/4.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/5.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/6.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/7.jpg" />
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="img/8.jpg" />
+        </div>
+      </li>
+      -->
+    </ul>
+    <script>
+      var container = document.getElementById("container");
+      var initCount = 0;
+      window.onload = function() {
+        initCount = container.getElementsByTagName("li").length;
+        setPosition();
+      };
+
+      window.onscroll = function() {
+        return;
+        if (checkEdge()) {
+          appendItem();
+          setPosition();
+        };
+      }
+      function getMinIndex(minHeightList, currMinHeight) {
+        for (var i = 0; i < minHeightList.length; i++) {
+          if (currMinHeight == minHeightList[i]) {
+            return i;
+          }
+        }
+      }
+
+      function setPosition() {
+        var cells = container.getElementsByTagName('li');
+        var cellWidth = cells[0].offsetWidth;
+        var clientWidth = document.documentElement.clientWidth || window.innerWidth;
+        var num = Math.floor(clientWidth / cellWidth);
+        container.style.cssText = "width:" + (cellWidth) * num + "px";
+        var minHeightList = [];
+        for (var i = 0; i < cells.length; i++) {
+          if (i < num) {
+            minHeightList[i] = cells[i].offsetHeight;
+          } else {
+            var currMinHeight = Math.min.apply(null, minHeightList);
+            var minIndex = getMinIndex(minHeightList, currMinHeight);
+            cells[i].style.position = "absolute";
+            cells[i].style.top = currMinHeight + "px";
+            cells[i].style.left = cells[minIndex].offsetLeft + "px";
+            minHeightList[minIndex] += cells[i].offsetHeight;
+          }
+        }
+      }
+
+      function checkEdge() {
+        var container = document.getElementById("container");
+        var cells = container.getElementsByTagName('li');
+        var eleHeight = cells[cells.length - 1].offsetTop + Math.floor(cells[cells.length - 1].offsetHeight / 2);
+        var scrollTop = document.documentElement.scorllTop || document.body.scrollTop;
+        var clientHeight = document.documentElement.clientHeight || window.innerHeight;
+        return eleHeight < scrollTop + clientHeight ? true : false;
+      }
+
+      function appendItem() {
+        var container = document.getElementById("container");
+        var cells = container.getElementsByTagName('li');
+        var currNodeNum = cells.length;
+        for (var i = 0; i < initCount; i++) {
+          var liNode = document.createElement("li");
+          container.appendChild(liNode);
+          var divNode = document.createElement("div");
+          liNode.appendChild(divNode);
+          var imgNode = document.createElement("img");
+          // imgNode.src = "img/" + (currNodeNum+i+1) + ".jpg";
+          imgNode.src = "img/" + (i + 1) + ".jpg";
+          divNode.appendChild(imgNode);
+        }
+      }
+    </script>
+  </body>
+</html>

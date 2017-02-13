@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div{
+      height: 100px;
+      width: 100px;
+      position: absolute;
+    }
+    .div1{
+      top: 0px;
+      left: 0px;
+      background: red;
+    }
+    .div2{
+      top: 150px;
+      left: 150px;
+      background: green;
+    }
+    .div3{
+      top: 300px;
+      left: 300px;
+      background: blue;
+    }
+    button{
+      position: absolute;
+      top: 20px;
+      left: 150px;
+    }
+  </style>
+  <script src="jquery.min.js"></script>
+</head>
+<body>
+  <div class="div1"></div>
+  <div class="div2"></div>
+  <div class="div3"></div>
+  <button onclick="startAnamite()">点我</button>
+  <script>
+    function startAnamite(){
+      if(parseInt($(".div1").css("top")) == 0){
+        anamiteFun("div1", 150, 150);
+        anamiteFun("div2", 300, 300);
+        anamiteFun("div3", 0, 0);
+      }
+      else if(parseInt($(".div1").css("top")) == 150){
+        anamiteFun("div3", 150, 150);
+        anamiteFun("div1", 300, 300);
+        anamiteFun("div2", 0, 0);
+      }
+      else if(parseInt($(".div1").css("top")) == 300){
+        anamiteFun("div2", 150, 150);
+        anamiteFun("div3", 300, 300);
+        anamiteFun("div1", 0, 0);
+      }
+    }
+    function anamiteFun(e, top, left){
+      $("." + e).animate({
+        top: top,
+        left: left},
+        2000, function() {
+        /* stuff to do after animation is complete */
+      });
+    }
+  </script>
+</body>
+</html>
