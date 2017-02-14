@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>测试垂直居中</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .ex{
+      width:100% ;
+      height: 100px;
+      background: #eee;
+      text-align: center;
+      margin: 10px 0;
+    }
+    .ex_1{
+      background-color: lightgreen;
+    }
+    .ex_2{
+      background-color: lightyellow;
+    }
+    .ex_3{
+      background-color: lightblue;
+    }
+
+    .ex > div{
+      margin: 0 auto;
+      width: 100px;
+      height: 30px;
+    }
+
+    /*ex1 start*/
+    .ex1{
+      display: flex;
+      align-items: center;
+    }
+    /*ex1 end*/
+
+    /*ex2 start*/
+    .ex2{
+      display: flex;
+    }
+    .ex2 > div{
+      align-self: center;
+    }
+    /*ex2 end*/
+
+    /*ex3 start*/
+    .ex3{
+      height: auto !important;/*默认样式*/
+    }
+    .ex3 .ex_1{
+      vertical-align: middle;
+      font-size: 50px;
+    }
+    /*ex3 end*/
+
+    /*ex4 start*/
+    .ex4{
+      position: relative;
+    }
+    .ex4 .ex_1{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    /*ex4 end*/
+
+    /*ex5 start*/
+    .ex5{
+      height: auto !important;/*默认样式*/
+      padding: 35px;
+    }
+    /*ex5 end*/
+
+    /*ex6 start*/
+    .ex6{
+      height: 100px;
+      line-height: 100px;
+    }
+    /*ex6 end*/
+
+    /*ex7 start*/
+    .ex7{
+      display: table-cell;/*行内*/
+      vertical-align: middle;
+    }
+    /*ex7 end*/
+
+    /*ex8 start*/
+    .ex8{
+      position: relative;
+    }
+    .ex8 > div{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    .ex8 > div > div{
+      position: relative;
+      top: -50%;
+      left: -50%;
+    }
+    /*ex8 end*/
+
+    /*ex9 start*/
+    .ex9{
+      /* Firefox */
+      display:-moz-box;
+      -moz-box-pack:center;
+      -moz-box-align:center;
+
+      /* Safari, Chrome, and Opera */
+      display:-webkit-box;
+      -webkit-box-pack:center;
+      -webkit-box-align:center;
+
+      /* W3C */
+      display:box;
+      box-pack:center;
+      box-align:center;
+    }
+    /*ex9 end*/
+    .ex9{
+      position: relative;
+    }
+    .ex9 .ex_1{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      -webkit-transform:translate(-50%,-50%);
+      -moz-transform:translate(-50%,-50%);
+      -ms-transform:translate(-50%,-50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="ex ex1">
+    <div class="ex_1"></div>
+    <!--<div class="ex_2"></div>
+    <div class="ex_3"></div>-->
+  </div>
+  <div class="ex ex2">
+    <div class="ex_1"></div>
+  </div>
+  <div class="ex ex3">
+    前文字<span class="ex_1">测试Inline</span>后文字
+  </div>
+  <div class="ex ex4">
+    <div class="ex_1"></div>
+  </div>
+  <div class="ex ex5">
+    <div class="ex_1"></div>
+  </div>
+  <div class="ex ex6">
+    指定height/line-height
+  </div>
+  <div class="ex ex7">
+    display:table-cell
+  </div>
+  <div class="ex ex8">
+    <div><div>ie下</div></div>
+  </div>
+  <div class="ex ex9">
+    <div class="ex_1"></div>
+  </div>
+
+  <script type="text/javascript">
+    //为了统一样式
+    var cell = document.querySelector('.ex7');
+    cell.style.width = document.querySelector("body").clientWidth + "px";
+  </script>
+
+</body>
+</html>
