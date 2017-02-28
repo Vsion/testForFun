@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script src="jquery.min.js"></script>
+  1: <input type="text" name="" data-id="1">
+  2: <input type="text" name="" data-id="2">
+  <script>
+    $(function(){
+      $("input").on("blur", function(){
+        console.log("blur: " + $(this).data("id"));
+      })
+    });
+  </script>
+</body>
+</html>

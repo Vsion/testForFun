@@ -30,6 +30,7 @@
       margin: 0 auto;
       width: 100px;
       height: 30px;
+      line-height: 30px;
     }
 
     /*ex1 start*/
@@ -127,10 +128,12 @@
       box-align:center;
     }
     /*ex9 end*/
-    .ex9{
+
+    /*ex10 start*/
+    .ex10{
       position: relative;
     }
-    .ex9 .ex_1{
+    .ex10 .ex_1{
       position:absolute;
       top:50%;
       left:50%;
@@ -139,37 +142,41 @@
       -moz-transform:translate(-50%,-50%);
       -ms-transform:translate(-50%,-50%);
     }
+    /*ex9 end*/
   </style>
 </head>
 <body>
   <div class="ex ex1">
-    <div class="ex_1"></div>
+    <div class="ex_1">1</div>
     <!--<div class="ex_2"></div>
     <div class="ex_3"></div>-->
   </div>
   <div class="ex ex2">
-    <div class="ex_1"></div>
+    <div class="ex_1">2</div>
   </div>
   <div class="ex ex3">
-    前文字<span class="ex_1">测试Inline</span>后文字
+    前文字<span class="ex_1">3:Inline</span>后文字
   </div>
   <div class="ex ex4">
-    <div class="ex_1"></div>
+    <div class="ex_1">4</div>
   </div>
   <div class="ex ex5">
-    <div class="ex_1"></div>
+    <div class="ex_1">5</div>
   </div>
   <div class="ex ex6">
-    指定height/line-height
+    6:指定height/line-height
   </div>
   <div class="ex ex7">
-    display:table-cell
+    7:display:table-cell
   </div>
   <div class="ex ex8">
-    <div><div>ie下</div></div>
+    <div><div>8:ie下</div></div>
   </div>
   <div class="ex ex9">
-    <div class="ex_1"></div>
+    <div class="ex_1">9</div>
+  </div>
+  <div class="ex ex10">
+    <div class="ex_1">10</div>
   </div>
 
   <script type="text/javascript">

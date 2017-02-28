@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>测试浮动</title>
+
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html, body{
+    height: 100%;
+    width: 100%;
+  }
+  .div1, .div2, .div3, .div4, .div5, .div6{ width:400px; border:1px solid #F00; background:#FF0;margin-top: 20px;}
+  .div-left,.div-right{ width:180px; height:100px;
+      border:1px solid #00F; background:#FFF}
+  .div-left{ float:left}
+  .div-right{ float:right}
+
+  /* ex1 */
+  .div1{
+    height: 100px;
+  }
+  /* ex2 */
+  .div2 .clear{
+    clear: both;
+  }
+  /* ex3 */
+  .div3{
+    overflow: hidden;
+  }
+  /* ex4 */
+  .div4:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .div4{
+    zoom: 1;
+  }
+  /* ex5 */
+  .div5{
+    float: left;
+  }
+  /* ex6 */
+  .div6{
+    position: absolute;
+    top: 605px;
+  }
+</style>
+</head>
+<body>
+<div class="div1">
+    <div class="div-left">left 父元素设置高度</div>
+    <div class="div-right">right</div>
+</div>
+<div class="div2">
+    <div class="div-left">left 父元素加一个div</div>
+    <div class="div-right">right</div>
+    <div class="clear"></div>
+</div>
+<div class="div3">
+    <div class="div-left">left 父元素overflow: hidden</div>
+    <div class="div-right">right</div>
+</div>
+<div class="div4">
+    <div class="div-left">left :after {clear: both}</div>
+    <div class="div-right">right</div>
+</div>
+<div class="div5">
+    <div class="div-left">left 父元素float: left/right</div>
+    <div class="div-right">right</div>
+</div>
+<div class="div6">
+    <div class="div-left">left 父元素绝对定位</div>
+    <div class="div-right">right</div>
+</div>
+</body>
+</html>

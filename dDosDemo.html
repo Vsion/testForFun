@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="base.css">
+  <title>ddos</title>
+  <style>
+    *{
+      padding:0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .layout-wraper{
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    .layout-border {
+      border: 1px solid #d1d1d1;
+      box-sizing: border-box;
+      margin-top: 0px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout-wraper">
+    <div class="layout-box layout-border layout-border-search">
+    <form id="pageForm" action="" method="post" novalidate="novalidate">
+      <div class="layout-row">
+        <div class="layout-col10">
+          <div class="layout-row">
+            <div class="layout-col2 layout-col2-min">
+              <span class="name-span">名称</span>
+              <span><input type="text" value="" name="pmirrorConfig.name"></span>
+            </div>
+            <div class="layout-col2 layout-col2-min">
+              <span class="name-span">描述</span>
+              <span><input type="text" value="" name="pmirrorConfig.descript"></span>
+            </div>
+            <div class="layout-col2 layout-col2-min">
+              <span class="name-span">关联单板</span>
+              <span><input type="text" value="" name="pmirrorConfig.descript"></span>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layout-row">
+        <div class="layout-col2 queryBtn-wraper">
+           <input id="queryBtn" type="button" value="查&nbsp;询" class="btn-info">
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</body>
+</html>
