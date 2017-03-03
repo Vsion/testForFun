@@ -19,21 +19,11 @@
         }
         .animate{
             top:0;
-            animation:ani 10s ease-out;
+            animation:ani 10s ease-out infinite;
             animation-fill-mode:both;
         }
         div{width:100px;height:100px;border-radius:50%;position: fixed;top:0;left:300px;background-color: #00cced}
     </style>
-    <script>
-    var  arr = [1,1,1,1];
-      for(var i = 0,len = arr.length; i < len; i++){
-        arr.splice(i,1);
-        i--;
-        console.log(i +": "+ len);
-        console.log(arr);
-        debugger
-      }
-    </script>
 </head>
 <body>
     <div class="animate"></div>

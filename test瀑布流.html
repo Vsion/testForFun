@@ -5,6 +5,7 @@
     <title>瀑布流</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <style>
       *{
         box-sizing: border-box;
@@ -34,10 +35,35 @@
         width:280px;
         height:auto;
       }
-
+      .cover{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: 999;
+        background-color: white;
+      }
+      .cover span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+      }
+      @keyframes loading {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .cover i{
+        animation: loading 1s linear infinite;
+      }
     </style>
   </head>
   <body>
+    <div class="cover"><span><i class="icon-spinner"></i></span></div>
     <ul id="container">
       <li>
         <div>
@@ -147,10 +173,12 @@
       window.onload = function() {
         initCount = container.getElementsByTagName("li").length;
         setPosition();
+        setTimeout(function(){
+          document.querySelector(".cover").remove();
+        }, 2000)
       };
 
       window.onscroll = function() {
-        return;
         if (checkEdge()) {
           appendItem();
           setPosition();
