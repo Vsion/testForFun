@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>获取最早出现出现次数最少的字母</title>
+</head>
+<body>
+  <script>
+    var str = "aaasdsrhksaoashgas";
+    function findMinLetter(str){
+      var arr = [], letter = "", count = 0, arrStr = str.split(""), tempStr = str;
+      letter = arrStr[0];
+
+      while(tempStr.indexOf(letter) > -1){
+        count ++;
+        tempStr = tempStr.replace(letter, "");
+        if(tempStr.indexOf(letter) < 0){
+          arr.push({letter: letter, count: count});
+          letter = tempStr.split("")[0];
+          count = 0;
+        }
+      }
+
+      function getRes(arr){
+        var letter = "", count = 0;
+        arr.forEach(function(o, i){
+          if(!!!letter || count > o.count){
+            letter = o.letter;
+            count = o.count;
+          }
+        });
+        return "最少且最靠前的字符为: " + letter + ", 出现次数为: " + count;
+      }
+      console.log(getRes(arr));
+    }
+    findMinLetter(str);
+  </script>
+</body>
+</html>

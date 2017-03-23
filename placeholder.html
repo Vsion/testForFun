@@ -20,9 +20,27 @@
     #textArea:-ms-input-placeholder{
       height: 50px;line-height: 50px
     }
+    div{
+      position: relative;
+    }
+    input{
+      position: relative;
+      content: "¥";
+      background-color: rgba(0,0,0,0)
+    }
+    .back{
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      display: inline-block;
+      color: rgba(1,1,1,0.5)
+    }
   </style>
 </head>
 <body>
-  <textarea id="textArea" name="" placeholder="请输入"></textarea>
+  <div>
+    <input type="text"/>
+    <div class="back">¥</div>
+  </div>
 </body>
 </html>

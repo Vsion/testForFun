@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  window.alert = function (txt,url) {
+  if (title == "" || title == null || title == undefined) {
+      title = "提示";
+  }
+  var title = "系统提示";
+  if (txt == undefined) {
+      document.body.removeChild(alertFram);
+      document.body.removeChild(shield);
+      eSrc.focus();
+      document.body.onselectstart = function () { return true; }
+      document.body.oncontextmenu = function () { return true; }
+  }
+  var eSrc = (document.all) ? window.event.srcElement : arguments[1];
+  var shield = document.createElement("DIV");
+  shield.id = "shield";
+  shield.style.position = "absolute";
+  shield.style.left = "0px";
+  shield.style.top = "0px";
+  shield.style.width = "100%";
+  shield.style.height = ((document.documentElement.clientHeight > document.documentElement.scrollHeight) ? document.documentElement.clientHeight : document.documentElement.scrollHeight) + "px";
+  shield.style.background = "#333";
+  shield.style.textAlign = "center";
+  shield.style.zIndex = "10000";
+  shield.style.filter = "alpha(opacity=0)";
+  shield.style.opacity = 0;
+  var alertFram = document.createElement("DIV");
+  alertFram.id = "alertFram";
+  alertFram.style.position = "absolute";
+  alertFram.style.left = "50%";
+  alertFram.style.top = "50%";
+  alertFram.style.marginLeft = "-162px";
+  alertFram.style.marginTop = -120 + document.documentElement.scrollTop + "px";
+  alertFram.style.width = "320px";
+  alertFram.style.height = "150px";
+  //       alertFram.style.background = "#ccc";
+  alertFram.style.textAlign = "center";
+  alertFram.style.lineHeight = "150px";
+  alertFram.style.zIndex = "10001";
+  strHtml = "<div style=\"font-weight:bold; margin:0px auto;padding:0px;background:#eaeaea;border:1px solid #999; border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;width:85%;\">\n";
+  strHtml += "       <div style=\"text-align:center;padding: 10px 15px 0;font-size:15px;height:30px;line-height:30px;color:#BD8455;\">" + title + "</div>\n";
+  strHtml += "       <div style=\"color:#666;line-height:20px;margin:15px auto;font-size:14px;width:90%;\">" + txt + "</div>\n";
+  strHtml += "       <div style=\"text-align:center;margin:5px 0;height:48px;\"><input type=\"button\" value=\"确&nbsp;&nbsp;定\" id=\"do_OK\" onclick=\"doOk()\"  style=\"outline:none;font-weight:bold;color:#BF882E;margin:4px auto;height:40px;line-height:40px;background:linear-gradient(top, #fff7c4, #ffd38b);background:-moz-linear-gradient(top, #fff7c4, #ffd38b);background:-webkit-gradient(linear, 0 0, 0 bottom, from(#fff7c4), to(#ffd38b));font-size:16px;border:1px solid #d0ccc3;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;width:50%; \"/></div>\n";
+  strHtml += "</div>\n";
+  alertFram.innerHTML = strHtml;
+  document.body.appendChild(alertFram);
+  document.body.appendChild(shield);
+  this.setOpacity = function (obj, opacity) {
+      if (opacity >= 1) opacity = opacity / 100;
+      try { obj.style.opacity = opacity; } catch (e) { }
+      try {
+          if (obj.filters.length > 0 && obj.filters("alpha")) {
+              obj.filters("alpha").opacity = opacity * 100;
+          } else {
+              obj.style.filter = "alpha(opacity=\"" + (opacity * 100) + "\")";
+          }
+      } catch (e) { }
+  }
+  var c = 0;
+  this.doAlpha = function () {
+      if (++c > 20) { clearInterval(ad); return 0; }
+      setOpacity(shield, c);
+  }
+  var ad = setInterval("doAlpha()", 1);
+  this.doOk = function () {
+      //alertFram.style.display = "none";
+      //shield.style.display = "none";
+      document.body.removeChild(alertFram);
+      document.body.removeChild(shield);
+//        eSrc.focus();
+      document.body.onselectstart = function () { return true; }
+      document.body.oncontextmenu = function () { return true; }
+      if (url) {
+          window.location.href = url;
+      }
+  }
+//    document.getElementById("do_OK").focus();
+//    eSrc.blur();
+  document.body.onselectstart = function () { return false; }
+  document.body.oncontextmenu = function () { return false; }
+}
+alert(123)
+console.log("123")
+  </script>
+</body>
+</html>
