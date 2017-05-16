@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+  <style type="text/css">
+    .main{
+      height: 300px;
+      overflow: auto;
+      background-color: lightblue;
+    }
+    .content {
+      height: 1000px;
+      width: 500px;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="content"></div>
+  </div>
+  <script type="text/javascript">
+    var i = 0;
+    $(".main").on("scrollstop", function(event) {
+      /* Act on the event */
+      console.log(i++)
+    });
+  </script>
+</body>
+</html>
